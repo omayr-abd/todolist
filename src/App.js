@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import { Route, Switch } from 'react-router-dom';
+import TodoPage from './pages/TodoPage';
+import Login from './pages/Login';
+import Register from './pages/Register';
+export const CredentialsContext = React.createContext();
 
-function App() {
+export default function App() {
+  const credentialsState = useState(null);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <CredentialsContext.Provider value={credentialsState}>
+        <Switch>
+          <Route exact path="/">
+            <Login />
+          </Route>
+          <Route exact path="/register">
+            <Register />
+          </Route>
+          <Route exact path="/todos">
+            <TodoPage />
+          </Route>
+        </Switch>
+      </CredentialsContext.Provider>
     </div>
-  );
-}
-
-export default App;
+  )
+};
