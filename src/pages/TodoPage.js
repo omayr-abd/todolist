@@ -35,7 +35,7 @@ export default function TodoPage() {
     })
       .then((response) => response.json())
       .then((todos) => setTodos(todos));
-  }, []);
+  });
 
   const addTodo = (todoText) => {
     if (!todoText) return;
