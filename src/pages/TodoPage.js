@@ -15,7 +15,7 @@ export default function TodoPage() {
   const [credentials, setCredentials] = useContext(CredentialsContext);
 
   const persist = (newTodos) => {
-    fetch(`/todos`, {
+    fetch(`http://localhost:4000/todos`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -26,7 +26,7 @@ export default function TodoPage() {
   };
 
   useEffect(() => {
-    fetch(`/todos`, {
+    fetch(`http://localhost:4000/todos`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",

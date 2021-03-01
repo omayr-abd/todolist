@@ -112,6 +112,6 @@ const db = mongoose.connection;
 db.on("error", console.error.bind(console, "connection error:"));
 db.once("open", function () {
   app.listen(port, () => {
-
+    console.log(`Example app listening at http://localhost:${port}`);
   });
 });
